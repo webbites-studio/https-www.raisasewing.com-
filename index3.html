@@ -15,8 +15,9 @@
     <style>
         /* --- BOLD ASYMMETRIC CONTEMPORARY LAYOUT --- */
         :root {
-            --accent: #c9a876;
+            --accent: #f20909;
             --dark: #1a1a1a;
+            --teal: #3dc7d6;
             --light: #f8f8f8;
             --grey: #666;
             --border: #e0e0e0;
@@ -25,6 +26,7 @@
         [data-theme="dark"] {
             --accent: #c9a876;
             --dark: #f8f8f8;
+            --teal: #6be0ee;
             --light: #0d0d0d;
             --grey: #aaa;
             --border: #333;
@@ -151,19 +153,27 @@
         }
 
         .hero-left {
-            background-color: var(--dark);
+            position: relative;
+            background-color: var(--teal);
             color: var(--light);
             padding: 100px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            overflow: hidden;
+            z-index: 10;
         }
 
+
+
         .hero-left h1 {
-            font-size: 5rem;
+            font-size: 3.5rem;
             line-height: 0.95;
             margin-bottom: 40px;
             letter-spacing: -3px;
+            color: #ffffff;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.3);
+            font-weight: 900;
         }
 
         .hero-left .highlight {
@@ -174,7 +184,7 @@
         .hero-left p {
             font-size: 1.1rem;
             margin-bottom: 50px;
-            color: #ccc;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .cta-button {
@@ -198,7 +208,7 @@
         }
 
         .hero-right {
-            background-image: url('./images/owner.jpeg');
+            background-image: url('./images/owner.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -211,13 +221,35 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(201, 168, 118, 0.3) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(61, 199, 214, 0.28) 0%, transparent 100%);
         }
 
         /* --- OVERSIZED TEXT ABOUT --- */
         .about-oversized {
+            position: relative;
             padding: 150px 80px;
             background-color: var(--light);
+            overflow: hidden;
+        }
+
+        .about-oversized::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(135deg,
+                rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) 10%,
+                rgba(0,0,0,0.16) 10%, rgba(0,0,0,0.16) 22%,
+                rgba(255,255,255,0.95) 22%, rgba(255,255,255,0.95) 32%,
+                rgba(0,0,0,0.16) 32%, rgba(0,0,0,0.16) 46%,
+                rgba(255,255,255,0.95) 46%, rgba(255,255,255,0.95) 56%,
+                rgba(0,0,0,0.16) 56%, rgba(0,0,0,0.16) 66%,
+                rgba(255,255,255,0.95) 66%, rgba(255,255,255,0.95) 78%,
+                rgba(0,0,0,0.16) 78%, rgba(0,0,0,0.16) 88%,
+                rgba(255,255,255,0.95) 88%, rgba(255,255,255,0.95) 100%
+            );
+            background-size: 420px 420px;
+            opacity: 0.12;
+            pointer-events: none;
         }
 
         .about-number {
@@ -249,7 +281,7 @@
 
         /* --- DIAGONAL SERVICES LAYOUT --- */
         .services-diagonal {
-            background-color: var(--dark);
+            background-color: var(--teal);
             color: var(--light);
             padding: 150px 0;
         }
@@ -269,12 +301,16 @@
         }
 
         .service-content {
+            position: relative;
             padding: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: var(--dark);
+            background-color: var(--teal);
+            overflow: hidden;
         }
+
+
 
         .service-label {
             display: inline-block;
@@ -297,7 +333,7 @@
 
         .service-content p {
             font-size: 1rem;
-            color: #bbb;
+            color: rgba(255, 255, 255, 0.92);
             margin-bottom: 20px;
         }
 
@@ -346,8 +382,30 @@
 
         /* --- GRID GALLERY --- */
         .gallery-bold {
+            position: relative;
             padding: 150px 80px;
             background-color: var(--light);
+            overflow: hidden;
+        }
+
+        .gallery-bold::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(150deg,
+                rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) 10%,
+                rgba(0,0,0,0.16) 10%, rgba(0,0,0,0.16) 24%,
+                rgba(255,255,255,0.95) 24%, rgba(255,255,255,0.95) 32%,
+                rgba(0,0,0,0.16) 32%, rgba(0,0,0,0.16) 44%,
+                rgba(255,255,255,0.95) 44%, rgba(255,255,255,0.95) 56%,
+                rgba(0,0,0,0.16) 56%, rgba(0,0,0,0.16) 68%,
+                rgba(255,255,255,0.95) 68%, rgba(255,255,255,0.95) 80%,
+                rgba(0,0,0,0.16) 80%, rgba(0,0,0,0.16) 90%,
+                rgba(255,255,255,0.95) 90%, rgba(255,255,255,0.95) 100%
+            );
+            background-size: 420px 420px;
+            opacity: 0.1;
+            pointer-events: none;
         }
 
         .gallery-bold h2 {
@@ -469,12 +527,16 @@
         }
 
         .contact-form-bold {
-            background-color: var(--dark);
+            position: relative;
+            background-color: var(--teal);
             color: var(--light);
             padding: 80px;
             transform: translateY(-100px);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
+
+
 
         .contact-form-bold h2 {
             font-size: 3rem;
@@ -572,8 +634,8 @@
 
         /* --- FOOTER --- */
         .footer-bold {
-            background-color: var(--dark);
-            color: var(--grey);
+            background-color: var(--teal);
+            color: rgba(255, 255, 255, 0.92);
             padding: 60px 80px;
             text-align: center;
             font-size: 0.9rem;
@@ -761,13 +823,12 @@
     <section class="hero-split" id="home">
         <div class="hero-left">
             <h1>
-                CRAFT<br>
-                <span class="highlight">ELEGANCE</span><br>
-                FOREVER
+                RAISA'S<br>
+                <span class="highlight">SEWING</span><br>
+                & ACCESSORIES
             </h1>
-            <p>Over 30 years of expertise in custom sewing, bridal alterations, and handcrafted jewelry. Experience the
-                fusion of traditional craftsmanship and contemporary design.</p>
-            <a href="#contact" class="cta-button">Book Now</a>
+            <p>I was born in the small town of Plesetsk in Northwest Russia and lived in Russia for 37 years. I graduated from law school there and worked for a long time in the legal profession. But from early childhood I was always involved in creative work, such as knitting, sewing, embroidering, crafting various things. Such activities always greatly inspired me, filled me with positive emotions. Previous generations in my family also engaged in creative work. My great grandfather, who lived in the country, knitted stockings and other things for the family and taught this skill to his daughters. My grandmother, who was also named Raisa, was a great craft maker. She crocheted and sold wonderful bed covers, table cloths and other things. She also wove area rugs and runners out of colored strings of cloth. There were very few rugs in those days, and my grandmother had a lot of success selling hers. Her husband died in 1945 from wounds he sustained during the war, and my grandmother raised her two children alone, built her own home in the 1960's, and she always worked very hard. I remember how I helped her weave those rugs on a big wooden loom. My grandmother taught me the fundamental techniques of craft making. In addition, my aunt Nina was a professional seamstress. And my mother, who received formal education in sewing, always made me dresses for the holidays. For many years I devoted all of my spare time to sewing and craft making, and to an ever deeper study of the technology of making clothing and accessories. I attended sewing school in Arkhangelsk, Russia and took courses from excellent teachers with many years of work experience. More recently, I received a degree in Image Consulting from the Moscow State University of Culture and Art. I moved to Portland, Maine in 2009 with my American husband, and we settled in Portland where I started my business. I shipped most of the equipment that I use here in my Studio from Arkhangelsk before I left. I could never leave my machines behind! I truly love my work. I view it as an opportunity to give joy to people, to create positive emotions by doing the very best that I can with each piece of clothing or craft.</p>
+            <a href="#contact" class="cta-button">Contact Me</a>
         </div>
         <div class="hero-right"></div>
     </section>
@@ -1009,7 +1070,7 @@
                 <p>New England Region / Studio Headquarters</p>
 
                 <h3>Contact Coordinates</h3>
-                <p>Inquiries: info@atelierraisa.com</p>
+                <p>Inquiries: raisasewing@gmail.com</p>
                 <p>Facebook: <a
                         href="https://www.facebook.com/people/Raisas-Sewing-Accessories/100064220551023/?ref=ts#"
                         target="_blank">Raisa's Sewing and Accessories</a></p>
